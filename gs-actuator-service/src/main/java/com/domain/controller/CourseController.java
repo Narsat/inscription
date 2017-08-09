@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.domain.model.Course;
 import com.domain.service.CourseService;
+import com.domain.util.Util;
 
 @RestController
 @RequestMapping("/courses")
@@ -26,5 +27,10 @@ public class CourseController {
 		courses.addAll(courseService.findAll());
 		return courses;
 		
+	}
+	
+	@RequestMapping("/util")
+	public String tryUtil() {
+		return Util.getProperty("CANREAD");
 	}
 }
