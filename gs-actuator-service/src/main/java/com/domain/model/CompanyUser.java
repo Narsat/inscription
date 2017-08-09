@@ -1,6 +1,6 @@
 package com.domain.model;
 
-public class User {
+public class CompanyUser {
 
 	//Id
 	private Long id;
