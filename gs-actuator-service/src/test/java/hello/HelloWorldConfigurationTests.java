@@ -29,6 +29,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.domain.Application;
+
 import static org.assertj.core.api.BDDAssertions.then;
 
 /**
@@ -37,7 +39,7 @@ import static org.assertj.core.api.BDDAssertions.then;
  * @author Dave Syer
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HelloWorldConfiguration.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = {"management.port=0"})
 public class HelloWorldConfigurationTests {
 
