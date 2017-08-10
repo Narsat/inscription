@@ -30,6 +30,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.client.ClientDetailsUserDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
@@ -57,10 +58,11 @@ public class OAuth2ServerConfiguration {
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
 			// @formatter:off
+			//Figure out how this protects everything else
 			http
 				.authorizeRequests()
-					.antMatchers("/users").hasRole("ADMIN")
-					.antMatchers("/greeting").authenticated();
+					.antMatchers("/courses/**").hasRole("GUEST")
+					.antMatchers("/greeting").hasRole("ADMIN");
 			// @formatter:on
 		}
 
@@ -91,6 +93,8 @@ public class OAuth2ServerConfiguration {
 			// @formatter:on
 		}
 
+		
+		
 		@Override
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			// @formatter:off
