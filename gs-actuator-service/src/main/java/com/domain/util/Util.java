@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.UUID;
 
 public class Util {
 	// /project-root/src/main/resources/config.properties
@@ -40,5 +41,14 @@ public class Util {
 			openProperties();
 		}
 		return properties.getProperty(property);
+	}
+	
+	
+	public static String getRandomString(Integer length) {
+		length = length < 30 ? length : 30; 
+		String s = UUID.randomUUID()
+				.toString()
+				.replace("-","");
+		return s.substring(0, length);
 	}
 }

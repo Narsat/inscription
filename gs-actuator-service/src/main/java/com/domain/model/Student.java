@@ -2,7 +2,7 @@ package com.domain.model;
 
 import java.util.Set;
 
-public class Student {
+public class Student extends User {
 	
 	//Id
 	private Long id;

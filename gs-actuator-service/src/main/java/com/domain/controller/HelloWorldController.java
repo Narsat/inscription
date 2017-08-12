@@ -24,7 +24,6 @@ public class HelloWorldController {
     public Greeting sayHello(@RequestParam(value="name", required=false, defaultValue="Stranger") String name,
     		HttpServletResponse  response) {
         	
-    	response.addHeader("Access-Control-Allow-Origin", "*");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
